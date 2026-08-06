@@ -5,21 +5,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const productCards = document.querySelectorAll('.card5');
 
     productCards.forEach(card => {
-        card.style.cursor = "pointer";
-        
         card.addEventListener('click', () => {
             const title = card.querySelector('h3')?.innerText || "Product";
-            const price = card.querySelector('.price')?.innerText || "";
+            const price = card.querySelector('.price span')?.innerText || "";
             
             cartCount++;
             if (cartCountElement) {
                 cartCountElement.innerText = cartCount;
             }
-
-            alert(`Added (${title}) with price ${price} to cart! `);
+            alert(`Added to cart: ${title} ${price} `);
         });
     });
-
 
     const mailForm = document.querySelector('.form6');
     if (mailForm) {
@@ -28,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const emailInput = mailForm.querySelector('input[type="email"]');
             
             if (emailInput && emailInput.value.trim() !== "") {
-                alert(`Thank you for subscribing! Discount code sent to: ${emailInput.value}`);
+                alert("Thank you for subscribing to our newsletter! ");
                 emailInput.value = "";
             } else {
                 alert("Please enter a valid email address.");
@@ -36,15 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const shopNowBtn = document.querySelector('a[href="products1"]');
+    const shopNowBtn = document.querySelector('a[href="#products"]');
     if (shopNowBtn) {
         shopNowBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            const productsSection = document.getElementById('products1');
-            if (productsSection) {
-                productsSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
+            const targetSection = document.getElementById('products');
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
             }
         });
     }
