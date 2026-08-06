@@ -5,17 +5,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const productCards = document.querySelectorAll('.card5');
 
     productCards.forEach(card => {
+        card.style.cursor = "pointer";
+        
         card.addEventListener('click', () => {
             const title = card.querySelector('h3')?.innerText || "Product";
-            const price = card.querySelector('.price span')?.innerText || "";
+            const price = card.querySelector('.price')?.innerText || "";
             
             cartCount++;
             if (cartCountElement) {
                 cartCountElement.innerText = cartCount;
             }
-            alert(`Added to cart: ${title} ${price} `);
+
+            alert(`Added (${title}) with price ${price} to cart! `);
         });
     });
+
 
     const mailForm = document.querySelector('.form6');
     if (mailForm) {
@@ -24,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const emailInput = mailForm.querySelector('input[type="email"]');
             
             if (emailInput && emailInput.value.trim() !== "") {
-                alert("Thank you for subscribing to our newsletter! ");
+                alert(`Thank you for subscribing! Discount code sent to: ${emailInput.value}`);
                 emailInput.value = "";
             } else {
                 alert("Please enter a valid email address.");
@@ -32,13 +36,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const shopNowBtn = document.querySelector('a[href="#products"]');
+    const shopNowBtn = document.querySelector('a[href="products1"]');
     if (shopNowBtn) {
         shopNowBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            const targetSection = document.getElementById('products');
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            const productsSection = document.getElementById('products1');
+            if (productsSection) {
+                productsSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
     }
