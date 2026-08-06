@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
 
-
     const mailForm = document.querySelector('.form6');
     if (mailForm) {
         mailForm.addEventListener('submit', (e) => {
