@@ -22,16 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 
-    window.addEventListener('scroll', () => {
-        const barSection = document.querySelector('.bar');
-        if (barSection && !hasAnimated) {
-            const sectionPos = barSection.getBoundingClientRect().top;
-            if (sectionPos < window.innerHeight - 50) {
-                animateCounters();
-                hasAnimated = true;
-            }
-        }
-    });
+
 
     const mailForm = document.querySelector('.form6');
     if (mailForm) {
